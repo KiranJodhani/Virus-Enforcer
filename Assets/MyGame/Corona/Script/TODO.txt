@@ -1,0 +1,21 @@
+ui setting in main menu and game over
+
+using UnityEngine;
+#if PLATFORM_ANDROID
+using UnityEngine.Android;
+#endif
+
+public class CamerAccessper : MonoBehaviour 
+{
+
+    
+    void Start ()
+    {
+        #if PLATFORM_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
+        {
+            Permission.RequestUserPermission(Permission.Microphone);
+        }
+        #endif
+    }
+}
